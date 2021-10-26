@@ -1,35 +1,23 @@
 package main
 
 import (
-	"pdm/pdm"
-	//"fmt"
-	"github.com/urfave/cli/v2"
-	"os"
-	//"log"
+	_ "embed"
+	"errors"
 	"fmt"
 	"github.com/atotto/clipboard"
+	"github.com/urfave/cli/v2"
+	"os"
+	"pdm/pdm"
 )
 
-func get_item(dataDir string, args []string) (string, error) {
+//go:embed completions/bash_autocomplete
+var bash_complete string
 
-	if p, err := pdm.LoadPDM(dataDir); err != nil {
-		return "", err
-
-	} else {
-		if item, err := p.Get(args); err != nil {
-			return "", err
-		} else {
-			if data, err := item.Read(); err != nil {
-				return "", err
-			} else {
-				return data, nil
-			}
-		}
-	}
-	return "", nil
-}
+//go:embed completions/zsh_autocomplete
+var zsh_complete string
 
 func main() {
+	supported_shells := []string{"zsh", "bash"}
 	var dataDir string
 
 	app := &cli.App{
@@ -44,6 +32,28 @@ func main() {
 			},
 		},
 		Commands: []*cli.Command{
+			{
+				Name:  "completion",
+				Usage: "show completion",
+				BashComplete: func(c *cli.Context) {
+					for _, shell := range supported_shells {
+						fmt.Println(shell)
+					}
+				},
+				Action: func(c *cli.Context) error {
+					shell := c.Args().First()
+					switch shell {
+					case "zsh":
+						fmt.Println(zsh_complete)
+					case "bash":
+						fmt.Println(bash_complete)
+					default:
+						return errors.New(fmt.Sprintf("%s is not one of the supported shells: %s", shell, supported_shells))
+					}
+					return nil
+
+				},
+			},
 			{
 				Name:    "list",
 				Aliases: []string{"l"},
@@ -68,12 +78,12 @@ func main() {
 					p, _ := pdm.LoadPDM(dataDir)
 					p.Suggest(c.Args().Slice())
 
-			},
+				},
 				Action: func(c *cli.Context) error {
 					if p, err := pdm.LoadPDM(dataDir); err != nil {
 						return err
 					} else {
-						if data, err := p.Read(c.Args().Slice()); err != nil {
+						if data, err := p.ReadItem(c.Args().Slice()); err != nil {
 							return err
 						} else {
 							clipboard.WriteAll(data)
@@ -95,12 +105,12 @@ func main() {
 					p, _ := pdm.LoadPDM(dataDir)
 					p.Suggest(c.Args().Slice())
 
-			},
+				},
 				Action: func(c *cli.Context) error {
 					if p, err := pdm.LoadPDM(dataDir); err != nil {
 						return err
 					} else {
-						if data, err := p.Read(c.Args().Slice()); err != nil {
+						if data, err := p.ReadItem(c.Args().Slice()); err != nil {
 							return err
 						} else {
 							fmt.Println(data)

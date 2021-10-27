@@ -9,10 +9,8 @@ import (
 	"os"
 	"pdm/pdm"
 )
-
 //go:embed completions/bash_autocomplete
 var bash_complete string
-
 //go:embed completions/zsh_autocomplete
 var zsh_complete string
 

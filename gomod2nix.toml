@@ -22,6 +22,54 @@
     rev = "f79a8a8ca69da163eee19ab442bedad7a35bba5a"
     sha256 = "0r1f7v475dxxgzqci1mxfliwadcrk86ippflx9n411325l4g3ghv"
 
+["github.com/davecgh/go-spew"]
+  sumVersion = "v1.1.1"
+  ["github.com/davecgh/go-spew".fetch]
+    type = "git"
+    url = "https://github.com/davecgh/go-spew"
+    rev = "8991bc29aa16c548c550c7ff78260e27b9ab7c73"
+    sha256 = "0hka6hmyvp701adzag2g26cxdj47g21x6jz4sc6jjz1mn59d474y"
+
+["github.com/facebookgo/ensure"]
+  sumVersion = "v0.0.0-20200202191622-63f1cf65ac4c"
+  ["github.com/facebookgo/ensure".fetch]
+    type = "git"
+    url = "https://github.com/facebookgo/ensure"
+    rev = "63f1cf65ac4cf1f4bd7e93292149a456001b0e0b"
+    sha256 = "05vi49g2967i5awcb1z69i2n5b5hwn06682kw90x81hbxlr0px36"
+
+["github.com/facebookgo/stack"]
+  sumVersion = "v0.0.0-20160209184415-751773369052"
+  ["github.com/facebookgo/stack".fetch]
+    type = "git"
+    url = "https://github.com/facebookgo/stack"
+    rev = "751773369052141c013c6e827a71e8f35c07879c"
+    sha256 = "07yr05mz7h007ldpij90zjflwgixp148sbyrdlh1fj5bikr4p8m3"
+
+["github.com/facebookgo/subset"]
+  sumVersion = "v0.0.0-20200203212716-c811ad88dec4"
+  ["github.com/facebookgo/subset".fetch]
+    type = "git"
+    url = "https://github.com/facebookgo/subset"
+    rev = "c811ad88dec4edb3d7af0a88b34e6865d7460ba2"
+    sha256 = "1sjczgmq26mgqvh7267saypnn4sfdjx467wsm1pgdhyss77mc650"
+
+["github.com/facebookgo/symwalk"]
+  sumVersion = "v0.0.0-20150726040526-42004b9f3222"
+  ["github.com/facebookgo/symwalk".fetch]
+    type = "git"
+    url = "https://github.com/facebookgo/symwalk"
+    rev = "42004b9f322246749dd73ad71008b1f3160c0052"
+    sha256 = "13fjx9gl3fdvy2gjxjyycy85g3xxb2zjiigakbgk0g5mxkb6i7m6"
+
+["github.com/facebookgo/testname"]
+  sumVersion = "v0.0.0-20150612200628-5443337c3a12"
+  ["github.com/facebookgo/testname".fetch]
+    type = "git"
+    url = "https://github.com/facebookgo/testname"
+    rev = "5443337c3a12e7194a181eceb64fc4b14c964b9b"
+    sha256 = "10cha2x7d2azz37lrlm0qnrfml0rp6f2r9fj4y2s4419ap7hsxl2"
+
 ["github.com/pmezard/go-difflib"]
   sumVersion = "v1.0.0"
   ["github.com/pmezard/go-difflib".fetch]

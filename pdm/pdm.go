@@ -6,6 +6,7 @@ import (
 	"os"
 	"path/filepath"
 	"strings"
+	"github.com/facebookgo/symwalk"
 )
 
 type PDM struct {
@@ -51,7 +52,8 @@ func (p *PDM) ReadItem(path []string) (string, error) {
 func LoadPDM(basePath string) (PDM, error) {
 
 	all := []Item{}
-	err := filepath.Walk(basePath,
+	
+	err := symwalk.Walk(basePath,
 		func(path string, info os.FileInfo, err error) error {
 			if err != nil {
 				return err

@@ -60,7 +60,7 @@ func main() {
 				Action: func(c *cli.Context) error {
 
 					p, err := pdm.LoadPDM(dataDir)
-					if err != nil {
+				if err != nil {
 						return err
 					}
 					for _, item := range p.Items {
@@ -79,6 +79,7 @@ func main() {
 
 				},
 				Action: func(c *cli.Context) error {
+					fmt.Println(dataDir)
 					if p, err := pdm.LoadPDM(dataDir); err != nil {
 						return err
 					} else {

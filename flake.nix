@@ -43,6 +43,9 @@
 	};
 
         defaultPackage = packages.pdm-cli;
+        overlay = final: prev: {
+          scripts = pdm-cli;
+        };
 
         devShell = pkgs.mkShell {
 		buildInputs = [ pkgs.gomod2nix pkgs.go packages.pdm-cli ]; 

@@ -26,6 +26,7 @@ func main() {
 				Aliases:     []string{"d"},
 				Usage:       "Data dir",
 				EnvVars:     []string{"PDM_DATA"},
+				Value:	     os.Getenv("HOME") + "/.config/pdm",
 				Destination: &dataDir,
 			},
 		},

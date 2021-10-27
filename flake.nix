@@ -44,7 +44,7 @@
 
         defaultPackage = packages.pdm-cli;
         overlay = final: prev: {
-          scripts = pdm-cli;
+          pdm-cli = pdm-cli;
         };
 
         devShell = pkgs.mkShell {

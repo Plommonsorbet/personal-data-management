@@ -36,13 +36,13 @@
           	runHook postInstall
 	  '';
 	};
-		#packages.${system}.pdm-cli = pdm-cli;
-		#defaultPackage.${system} = pdm-cli;
-		devShell = pkgs.mkShell { buildInputs = [pkgs.gomod2nix];};
+		packages.${system}.pdm-cli = pdm-cli;
+		defaultPackage.${system} = pdm-cli;
+		evShell = pkgs.mkShell { buildInputs = [pkgs.gomod2nix];};
 
-      		#overlay = final: prev: {
-      		#	pdm-cli = pdm-cli;
-      		#};
+      		overlay = final: prev: {
+      			pdm-cli = pdm-cli;
+      		};
 
 	};
   	

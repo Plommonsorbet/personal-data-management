@@ -79,7 +79,6 @@ func main() {
 
 				},
 				Action: func(c *cli.Context) error {
-					fmt.Println(dataDir)
 					if p, err := pdm.LoadPDM(dataDir); err != nil {
 						return err
 					} else {
